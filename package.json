@@ -1,0 +1,14 @@
+{
+  "name": "ottvok",
+  "version": "1.0.0",
+  "description": "Distance & duration for multiple destinations and transport modes",
+  "author": "Richer Balázs <richer.balazs@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "nodemon" : "1.9.2"
+  }
+}
