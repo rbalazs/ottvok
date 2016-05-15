@@ -14,7 +14,7 @@ app.get('/distancematrix/*', function (req, res) {
     var key = process.env.API_KEY || '';
 
     fs.readFile('apikey', function (err, content) {
-        if (err) {
+        if (err && key === '') {
             console.log('Error loading client secret file (apikey): ' + err);
             return;
         }
