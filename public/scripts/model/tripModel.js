@@ -5,5 +5,6 @@ define(['knockout-3.4.0'], function (ko) {
         this.distance = ko.observable();
         this.duration = ko.observable();
         this.status = ko.observable();
+        this.durationInTraffic = ko.observable();
     };
 });

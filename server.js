@@ -23,7 +23,7 @@ app.get('/distancematrix/*', function (req, res) {
 
         var options = {
             host: 'maps.googleapis.com',
-            path: '/maps/api/distancematrix/json?origins=r%C3%A1kosfalva%20park&destinations=m%C3%A9sz%C3%A1ros%20utca&key=' + key,
+            path: '/maps/api/distancematrix/json?origins=r%C3%A1kosfalva%20park&destinations=m%C3%A9sz%C3%A1ros%20utca&key=' + key + '&mode=driving&traffic_model=best_guess&departure_time=now',
             port: 443,
             method: 'GET'
         };

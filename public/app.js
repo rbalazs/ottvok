@@ -18,6 +18,7 @@ require(['knockout-3.4.0', 'jquery', 'tripModel'], function (ko, $, tripModel) {
             trip.distance(data.rows[0].elements[0].distance.text);
             trip.duration(data.rows[0].elements[0].duration.text);
             trip.status(data.status);
+            trip.durationInTraffic(data.rows[0].elements[0].duration_in_traffic.text);
         });
     });
 });
