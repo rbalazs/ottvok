@@ -2,16 +2,10 @@
 
 const express = require('express');
 
-// Constants
 const PORT = 8080;
 
-// App
 const app = express();
 
-app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/src' + '/index.html');
-});
+app.use(express.static('public'));
 
 app.listen(PORT);
-
-console.log('Running on http://localhost:' + PORT);
