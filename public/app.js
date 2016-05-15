@@ -9,9 +9,15 @@ requirejs.config({
 require(['knockout-3.4.0', 'jquery', 'tripModel'], function (ko, $, tripModel) {
     $(document).ready(function () {
         var trip = new tripModel();
+
         ko.applyBindings(trip);
+
         $.getJSON('distancematrix/getJSONWithProxy', function (data) {
-            console.log(data);
+            trip.destinationAddresses(data.destination_addresses);
+            trip.originAddresses(data.origin_addresses);
+            trip.distance(data.rows[0].elements[0].distance.text);
+            trip.duration(data.rows[0].elements[0].duration.text);
+            trip.status(data.status);
         });
     });
 });
