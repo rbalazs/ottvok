@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.get('/distancematrix/*', function (req, res) {
     var https = require('https');
     var fs = require('fs');
-    var key = '';
+    var key = process.env.API_KEY || '';
 
     fs.readFile('apikey', function (err, content) {
         if (err) {
@@ -19,7 +19,9 @@ app.get('/distancematrix/*', function (req, res) {
             return;
         }
 
-        key = content;
+        if (key === '') {
+            key = content;
+        }
 
         var options = {
             host: 'maps.googleapis.com',
