@@ -6,6 +6,8 @@ const PORT = 8080;
 
 const app = express();
 
+const param = require('jquery-param');
+
 app.use(express.static('public'));
 
 app.get('/distancematrix/*', function (req, res) {
@@ -18,14 +20,22 @@ app.get('/distancematrix/*', function (req, res) {
             console.log('Error loading client secret file (apikey): ' + err);
             return;
         }
-
         if (key === '') {
             key = content;
         }
 
         var options = {
             host: 'maps.googleapis.com',
-            path: '/maps/api/distancematrix/json?origins=r%C3%A1kosfalva%20park&destinations=m%C3%A9sz%C3%A1ros%20utca&key=' + key + '&mode=driving&traffic_model=best_guess&departure_time=now',
+            path: '/maps/api/distancematrix/json?' + param(
+                {
+                    'origins' : 'rákosfalva part',
+                    'destinations' : 'mészáros utca',
+                    'key' :  key,
+                    'mode' : 'driving',
+                    'traffic_model' : 'best_guess',
+                    'departure_time' : 'now'
+                }
+            ),
             port: 443,
             method: 'GET'
         };
