@@ -1,8 +1,12 @@
 requirejs.config({
+    shim : {
+        "bootstrap" : { "deps" :['jquery'] }
+    },
     paths: {
         'knockout-3.4.0': 'https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min',
         'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min',
-        'tripModel': 'scripts/model/tripModel'
+        'tripModel': 'scripts/model/tripModel',
+        'bootstrap' :  'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min'
     }
 });
 
