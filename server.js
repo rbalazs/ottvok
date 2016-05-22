@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 app.get('/distancematrix/getJSONWithProxy/:time', function (request, response) {
     var time = request.params.time;
-    
+
     var DistanceMatrixController = require('./src/controller/DistanceMatrixController');
     var DistanceMatrixProxy = require('./src/proxy/DistanceMatrixProxy');
     var APIKeyService = require('./src/service/APIKeyService');
