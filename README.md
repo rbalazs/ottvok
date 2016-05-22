@@ -3,6 +3,8 @@
 
 Provisional data about the time spent driving with various departure times.
 
+Prototype: http://gooffice.herokuapp.com/
+
 ## Contribute
  - Clone
  - NPM install
