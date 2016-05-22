@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/base_ui.css">
 </head>
 <body>
-<p>status: <input data-bind="value: status"/></p>
-<p>destinationAddresses: <input data-bind="value: destinationAddresses"/></p>
-<p>originAddresses: <input data-bind="value: originAddresses"/></p>
-<p>distance: <input data-bind="value: distance"/></p>
-<p>duration: <input data-bind="value: duration"/></p>
-<p>durationInTraffic: <input data-bind="value: durationInTraffic"/></p>
+<div>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">API</span>
+        <input type="text" class="form-control" data-bind="value: status" placeholder="API státusz">
+    </div>
+
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">innen megyünk</span>
+        <input type="text" class="form-control" data-bind="value: destinationAddresses" placeholder="ide megyünk">
+    </div>
+
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">ide megyünk</span>
+        <input type="text" class="form-control" data-bind="value: originAddresses" placeholder="innen megyünk">
+    </div>
+
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">ennyit megyünk</span>
+        <input type="text" class="form-control" data-bind="value: distance" placeholder="ennyit megyünk">
+    </div>
+
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">időtartam</span>
+        <input type="text" class="form-control" data-bind="value: duration" placeholder="időtartam">
+    </div>
+
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon">ennyit fogunk autózni</span>
+        <input type="text" class="form-control" data-bind="value: durationInTraffic" placeholder="ennyit fogunk autózni">
+    </div>
+
+</div>
 <script data-main="app.js" src="require.js"></script>
 </body>
 </html>

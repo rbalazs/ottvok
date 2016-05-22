@@ -1,0 +1,8 @@
+.input-group-addon:first-child {
+    border-right: 0;
+    width: 158px;
+}
+
+.input-group .form-control:last-child {
+    width: 401px;
+}
