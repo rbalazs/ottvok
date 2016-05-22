@@ -6,4 +6,7 @@ WORKDIR /usr/src/app
 EXPOSE 8080
 CMD [ "npm", "start" ]
 
-# docker run -p 49160:8080 -v $HOME/ottvok:/usr/src/app rbalazs/ottvok-app
+# cd working directory ($HOME/ottvok)
+# npm: docker run -v $HOME/ottvok:/foo -w /foo node:argon npm install
+# build: docker build -t <username>/ottvok-app .
+# startup: docker run -p 49160:8080 -v $HOME/ottvok:/usr/src/app <username>/ottvok-app
