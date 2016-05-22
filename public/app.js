@@ -6,33 +6,17 @@ requirejs.config({
         'knockout-3.4.0': 'https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min',
         'jquery': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min',
         'TripModel': 'scripts/model/TripModel',
-        'bootstrap': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min'
+        'bootstrap': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min',
+        'utils' : 'scripts/helper/utils'
     }
 });
 
-require(['knockout-3.4.0', 'jquery', 'TripModel'],
-    function (ko, $, TripModel) {
+require(['knockout-3.4.0', 'jquery', 'TripModel', 'utils'],
+    function (ko, $, TripModel, utils) {
         $(document).ready(function () {
-            /**
-             * Visszad egy timestamp-et, a kapott mennyisegu percel eltolva.
-             * @param minutes
-             * @return {Date}
-             */
-            var getTimestampWithAdditionalMinutes = function (minutes) {
-                var timestampTenMinutesLater = new Date();
-                timestampTenMinutesLater.setMinutes(timestampTenMinutesLater.getMinutes() + minutes);
-                timestampTenMinutesLater = Math.floor(timestampTenMinutesLater / 1000);
-                return timestampTenMinutesLater;
-            };
-            var timestampTenMinutesLater = getTimestampWithAdditionalMinutes(10);
-            var timestampTwentyMinutesLater = getTimestampWithAdditionalMinutes(20);
-            var timestampThirtyMinutesLater = getTimestampWithAdditionalMinutes(30);
-            var timestampFourtyFiveMinutesLater = getTimestampWithAdditionalMinutes(45);
-            var timestampSixtyMinutesLater = getTimestampWithAdditionalMinutes(60);
-            var timestampNintyMinutesLater = getTimestampWithAdditionalMinutes(90);
-            var timestampNow = Math.floor(Date.now() / 1000);
-
             var trip = new TripModel();
+            var url = 'distancematrix/getJSONWithProxy/';
+            var timestampNow = Math.floor(Date.now() / 1000);
 
             ko.applyBindings(trip);
 
@@ -45,27 +29,27 @@ require(['knockout-3.4.0', 'jquery', 'TripModel'],
                 trip.durationInTraffic(data.rows[0].elements[0].duration_in_traffic.text);
             });
 
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampTenMinutesLater, function (data) {
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(10), function (data) {
                 trip.durationInTrafficTenMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
 
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampTwentyMinutesLater, function (data) {
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(20), function (data) {
                 trip.durationInTrafficTwentyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
 
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampThirtyMinutesLater, function (data) {
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(30), function (data) {
                 trip.durationInTrafficThirtyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
 
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampFourtyFiveMinutesLater, function (data) {
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(45), function (data) {
                 trip.durationInTrafficFourtyFiveMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
 
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampSixtyMinutesLater, function (data) {
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(60), function (data) {
                 trip.durationInTrafficSixtyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
 
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampNintyMinutesLater, function (data) {
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(90), function (data) {
                 trip.durationInTrafficNintyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
         });
