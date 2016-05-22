@@ -9,9 +9,13 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/distancematrix/*', function (req, res) {
-    var DistancematrixController = require('./src/controller/DistancematrixController');
-    var distancematrixController = new DistancematrixController();
-    distancematrixController.run(req, res);
+    var DistanceMatrixController = require('./src/controller/DistanceMatrixController');
+    var DistanceMatrixProxy = require('./src/proxy/DistanceMatrixProxy');
+    var APIKeyService = require('./src/service/APIKeyService');
+
+    var controller = new DistanceMatrixController();
+
+    controller.execute(req, res, new APIKeyService(), new DistanceMatrixProxy());
 });
 
 app.listen(process.env.PORT || PORT);

@@ -17,6 +17,7 @@ require(['knockout-3.4.0', 'jquery', 'TripModel'],
 
             ko.applyBindings(trip);
 
+            // Fetch google api datas from a backend proxy, to avoid cross-origin.
             $.getJSON('distancematrix/getJSONWithProxy', function (data) {
                 trip.destinationAddresses(data.destination_addresses);
                 trip.originAddresses(data.origin_addresses);
