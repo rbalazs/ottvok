@@ -26,4 +26,5 @@ require(['knockout-3.4.0', 'jquery', 'TripModel'],
                 trip.durationInTraffic(data.rows[0].elements[0].duration_in_traffic.text);
             });
         });
-    });
+    }
+);
