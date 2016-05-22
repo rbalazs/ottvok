@@ -14,4 +14,4 @@ app.get('/distancematrix/*', function (req, res) {
     distancematrixController.run(req, res);
 });
 
-app.listen(process.env.PORT || PORT)
+app.listen(process.env.PORT || PORT);

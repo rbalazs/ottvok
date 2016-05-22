@@ -6,7 +6,6 @@
  * @constructor
  */
 var DistancematrixController = function () {
-
     /**
      * Handle express js request-response.
      *
@@ -18,17 +17,19 @@ var DistancematrixController = function () {
         var https = require('https');
         var fs = require('fs');
         var key = process.env.API_KEY || '';
+        var options = {};
+        var responseBody = '';
 
         fs.readFile('apikey', function (err, content) {
             if (err && key === '') {
-                console.log('Error loading client secret file (apikey): ' + err);
                 return;
             }
+
             if (key === '') {
                 key = content;
             }
 
-            var options = {
+            options = {
                 host: 'maps.googleapis.com',
                 path: '/maps/api/distancematrix/json?' + param(
                     {
@@ -44,18 +45,16 @@ var DistancematrixController = function () {
                 method: 'GET'
             };
 
-            var body = '';
-
             https.request(options, function (response) {
                 response.on('data', function (chunk) {
-                    body += chunk;
+                    responseBody += chunk;
                 });
                 response.on('end', function () {
-                    res.json(JSON.parse(body));
+                    res.json(JSON.parse(responseBody));
                 });
             }).end();
         });
-    }
+    };
 };
 
 module.exports = DistancematrixController;

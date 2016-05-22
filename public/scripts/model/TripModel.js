@@ -1,5 +1,5 @@
 define(['knockout-3.4.0'], function (ko) {
-    return function() {
+    return function () {
         this.destinationAddresses = ko.observable();
         this.originAddresses = ko.observable();
         this.distance = ko.observable();
