@@ -1,7 +1,8 @@
 # ottvok
-> How to drive the least possible.
+> When to get going, if I want to spent the least possibe time in the traffic?
 
 Provisional data about the time spent driving with various departure times.
+
 ## Contribute
  - Clone
  - NPM install
