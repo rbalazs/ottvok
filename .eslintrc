@@ -52,7 +52,7 @@
      * Best practices
      */
     "vars-on-top": 2,                // http://eslint.org/docs/rules/vars-on-top
-    "consistent-return": 2,          // http://eslint.org/docs/rules/consistent-return
+    "consistent-return": 0,          // http://eslint.org/docs/rules/consistent-return
     "curly": [2],                    // http://eslint.org/docs/rules/curly
     "wrap-iife": [2, "any"],         // http://eslint.org/docs/rules/wrap-iife
     "default-case": 2,               // http://eslint.org/docs/rules/default-case
