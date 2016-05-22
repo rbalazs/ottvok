@@ -8,14 +8,16 @@ const app = express();
 
 app.use(express.static('public'));
 
-app.get('/distancematrix/*', function (req, res) {
+app.get('/distancematrix/getJSONWithProxy/:time', function (request, response) {
+    var time = request.params.time;
+    
     var DistanceMatrixController = require('./src/controller/DistanceMatrixController');
     var DistanceMatrixProxy = require('./src/proxy/DistanceMatrixProxy');
     var APIKeyService = require('./src/service/APIKeyService');
 
     var controller = new DistanceMatrixController();
 
-    controller.execute(req, res, new APIKeyService(), new DistanceMatrixProxy());
+    controller.execute(response, time, new APIKeyService(), new DistanceMatrixProxy());
 });
 
 app.listen(process.env.PORT || PORT);

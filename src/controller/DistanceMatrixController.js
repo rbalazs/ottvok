@@ -9,15 +9,15 @@ var DistanceMatrixProxyController = function () {
     /**
      * Provides the response.
      *
-     * @param req
-     * @param res
+     * @param response
+     * @param time
      * @param {APIKeyService} apiKeyService
      * @param {DistanceMatrixProxy} distanceMatrixProxy
      */
-    this.execute = function (req, res, apiKeyService, distanceMatrixProxy) {
+    this.execute = function (response, time, apiKeyService, distanceMatrixProxy) {
         apiKeyService.getKey().then(function (key) {
-            distanceMatrixProxy.downloadData(key, 'rákosfalva park', 'mészáros utca', 'now').then(function (data) {
-                res.json(JSON.parse(data));
+            distanceMatrixProxy.downloadData(key, 'rákosfalva park', 'mészáros utca', time).then(function (data) {
+                response.json(JSON.parse(data));
             });
         });
     };
