@@ -52,6 +52,10 @@ require(['knockout-3.4.0', 'jquery', 'TripModel', 'utils'],
             $.getJSON(url + utils.getTimestampWithAdditionalMinutes(90), function (data) {
                 trip.durationInTrafficNintyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
             });
+
+            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(120), function (data) {
+                trip.durationInTrafficOneHundredTwentyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
+            });
         });
     }
 );

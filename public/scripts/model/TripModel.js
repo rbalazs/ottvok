@@ -14,5 +14,6 @@ define(['knockout-3.4.0'], function (ko) {
         this.durationInTrafficFourtyFiveMinutesLater = ko.observable();
         this.durationInTrafficSixtyMinutesLater = ko.observable();
         this.durationInTrafficNintyMinutesLater = ko.observable();
+        this.durationInTrafficOneHundredTwentyMinutesLater = ko.observable();
     };
 });
