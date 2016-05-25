@@ -7,7 +7,7 @@
  */
 var DistanceMatrixProxy = function () {
    /**
-    * Visszaadja a letoltott adatokat.
+    * Returns data from Google Maps Distance Matrix API.
     *
     * @param key
     * @param origin
