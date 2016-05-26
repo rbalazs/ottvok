@@ -13,15 +13,14 @@ requirejs.config({
 
 require(['knockout-3.4.0', 'jquery', 'TripModel', 'utils'],
     function (ko, $, TripModel, utils) {
-        $(document).ready(function () {
-            var trip = new TripModel();
-            var url = 'distancematrix/getJSONWithProxy/';
+
+        function doProvision(trip) {
+            var baseUrl = 'distancematrix/getJSONWithProxy/';
+            var url = baseUrl + trip.originAddresses() + '/' + trip.destinationAddresses() + '/';
             var timestampNow = Math.floor(Date.now() / 1000);
 
-            ko.applyBindings(trip);
-
             // Fetch google api datas from a backend proxy, to avoid cross-origin.
-            $.getJSON('distancematrix/getJSONWithProxy/' + timestampNow, function (data) {
+            $.getJSON(url + timestampNow, function (data) {
                 trip.destinationAddresses(data.destination_addresses);
                 trip.originAddresses(data.origin_addresses);
                 trip.distance(data.rows[0].elements[0].distance.text);
@@ -55,6 +54,14 @@ require(['knockout-3.4.0', 'jquery', 'TripModel', 'utils'],
 
             $.getJSON(url + utils.getTimestampWithAdditionalMinutes(120), function (data) {
                 trip.durationInTrafficOneHundredTwentyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
+            });
+        }
+
+        $(document).ready(function () {
+            var trip = new TripModel();
+            ko.applyBindings(trip);
+            $('.do-provision').click(function () {
+                doProvision(trip);
             });
         });
     }

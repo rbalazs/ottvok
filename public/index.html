@@ -16,12 +16,12 @@
 
     <div class="input-group input-group-sm">
         <span class="input-group-addon">ide megyünk</span>
-        <input type="text" class="form-control" data-bind="value: destinationAddresses" placeholder="ide megyünk">
+        <input type="text" class="form-control" data-bind="textInput: destinationAddresses" placeholder="ide megyünk">
     </div>
 
     <div class="input-group input-group-sm">
         <span class="input-group-addon">innen megyünk</span>
-        <input type="text" class="form-control" data-bind="value: originAddresses" placeholder="innen megyünk">
+        <input type="text" class="form-control" data-bind="textInput: originAddresses" placeholder="innen megyünk">
     </div>
 
     <div class="input-group input-group-sm">
@@ -76,6 +76,8 @@
         <input type="text" class="form-control" data-bind="value: durationInTrafficNintyMinutesLater"
                placeholder="ennyit fogunk autózni - ha két óra múlva" disabled>
     </div>
+
+    <button type="button" class="btn btn-default do-provision">Mehet</button>
 </div>
 <script data-main="app.js" src="require.js"></script>
 </body>

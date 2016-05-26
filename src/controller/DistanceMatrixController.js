@@ -9,14 +9,19 @@ var DistanceMatrixProxyController = function () {
     /**
      * Provides the response.
      *
-     * @param response
-     * @param time
+     * @param {Object} response
+     * @param {Object} params
      * @param {APIKeyService} apiKeyService
      * @param {DistanceMatrixProxy} distanceMatrixProxy
      */
-    this.execute = function (response, time, apiKeyService, distanceMatrixProxy) {
+    this.execute = function (response, params, apiKeyService, distanceMatrixProxy) {
         apiKeyService.getKey().then(function (key) {
-            distanceMatrixProxy.downloadData(key, 'rákosfalva park', 'mészáros utca', time).then(function (data) {
+            distanceMatrixProxy.downloadData(
+                key,
+                params.originAddresses,
+                params.destinationAddresses,
+                params.time
+            ).then(function (data) {
                 response.json(JSON.parse(data));
             });
         });
