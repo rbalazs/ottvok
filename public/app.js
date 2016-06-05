@@ -87,6 +87,12 @@ require(['knockout-3.4.0', 'jquery', 'TripModel', 'utils', 'async!https://maps.g
             ko.applyBindings(trip);
 
             $('.do-provision').click(function () {
+                if (typeof trip.originAddresses() === 'undefined') {
+                    trip.originAddresses('rákosfalva park');
+                }
+                if (typeof trip.destinationAddresses() === 'undefined') {
+                    trip.destinationAddresses('mészáros utca');
+                }
                 doProvision(trip);
             });
         });
