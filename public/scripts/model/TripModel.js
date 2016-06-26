@@ -7,8 +7,6 @@ define(['knockout-3.4.0'], function (ko) {
         this.originAddresses = ko.observable();
         this.distance = ko.observable();
         this.status = ko.observable();
-        this.durationInTraffic = ko.observable();
-        this.eta = ko.observable();
-        this.timestam = ko.observable();
+        this.provisions = ko.observableArray();
     };
 });

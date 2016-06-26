@@ -29,10 +29,8 @@
         <input type="text" class="form-control" data-bind="value: distance" placeholder="ennyit megyünk">
     </div>
 
-    <div class="input-group input-group-sm">
-        <span class="input-group-addon">ha most indulunk</span>
-        <input type="text" class="form-control" data-bind="value: durationInTraffic"
-               placeholder="ennyit fogunk autózni - ha most indulunk" disabled>
+    <div data-bind="foreach: provisions">
+        <p><span data-bind="text: durationInTraffic"></span> <span data-bind="text: timestampVerbose"></span></p>
     </div>
 
     <button type="button" class="btn btn-default do-provision">Mehet</button>
