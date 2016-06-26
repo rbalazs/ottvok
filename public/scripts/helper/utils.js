@@ -1,7 +1,7 @@
 define('utils', function () {
     return {
         /**
-         * Visszad egy timestamp-et, a kapott mennyisegu percel eltolva.
+         * Return a timestamp edited by given minutes.
          *
          * @param minutes
          *
