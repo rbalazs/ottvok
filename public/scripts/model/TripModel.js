@@ -8,12 +8,7 @@ define(['knockout-3.4.0'], function (ko) {
         this.distance = ko.observable();
         this.status = ko.observable();
         this.durationInTraffic = ko.observable();
-        this.durationInTrafficTenMinutesLater = ko.observable();
-        this.durationInTrafficTwentyMinutesLater = ko.observable();
-        this.durationInTrafficThirtyMinutesLater = ko.observable();
-        this.durationInTrafficFourtyFiveMinutesLater = ko.observable();
-        this.durationInTrafficSixtyMinutesLater = ko.observable();
-        this.durationInTrafficNintyMinutesLater = ko.observable();
-        this.durationInTrafficOneHundredTwentyMinutesLater = ko.observable();
+        this.eta = ko.observable();
+        this.timestam = ko.observable();
     };
 });

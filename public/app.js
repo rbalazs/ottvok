@@ -27,34 +27,6 @@ require(['knockout-3.4.0', 'jquery', 'TripModel', 'utils', 'async!https://maps.g
                 trip.status(data.status);
                 trip.durationInTraffic(data.rows[0].elements[0].duration_in_traffic.text);
             });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(10), function (data) {
-                trip.durationInTrafficTenMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(20), function (data) {
-                trip.durationInTrafficTwentyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(30), function (data) {
-                trip.durationInTrafficThirtyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(45), function (data) {
-                trip.durationInTrafficFourtyFiveMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(60), function (data) {
-                trip.durationInTrafficSixtyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(90), function (data) {
-                trip.durationInTrafficNintyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
-
-            $.getJSON(url + utils.getTimestampWithAdditionalMinutes(120), function (data) {
-                trip.durationInTrafficOneHundredTwentyMinutesLater(data.rows[0].elements[0].duration_in_traffic.text);
-            });
         }
 
         $(document).ready(function () {
