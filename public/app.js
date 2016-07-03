@@ -31,6 +31,7 @@ require(['knockout-3.4.0', 'jquery', 'TripModel', 'ProvisionModel', 'utils', 'mo
                 provision.durationInTraffic(data.rows[0].elements[0].duration_in_traffic.text);
                 provision.timestampVerbose(moment.unix(timestamp).fromNow() + " (" + moment.unix(timestamp).format('H:mm') + ")");
                 provision.timestamp(timestamp);
+                $('.loader').hide();
             });
 
             trip.provisions.push(provision);
@@ -68,6 +69,7 @@ require(['knockout-3.4.0', 'jquery', 'TripModel', 'ProvisionModel', 'utils', 'mo
             ko.applyBindings(trip);
 
             $('.do-provision').click(function () {
+                $('.loader').show();
                 if (typeof trip.originAddresses() === 'undefined') {
                     trip.originAddresses('rákosfalva park');
                 }
