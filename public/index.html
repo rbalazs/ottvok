@@ -29,11 +29,15 @@
         <input type="text" class="form-control" data-bind="value: distance" placeholder="ennyit megyünk">
     </div>
 
-    <div data-bind="foreach: provisions">
-        <p><span data-bind="text: durationInTraffic"></span> <span data-bind="text: timestampVerbose"></span></p>
+    <div class="fastestProvision">
+      <p><span data-bind="text: fastestProvision().durationInTraffic"></span> <span data-bind="text: fastestProvision().timestampVerbose"></span></p>
     </div>
 
     <button type="button" class="btn btn-default do-provision"><img src="assets/loader.gif" class="loader" alt="Prögőbasz" />Mehet</button>
+
+    <div class="provisions" data-bind="foreach: provisions">
+        <p><span data-bind="text: durationInTraffic"></span> <span data-bind="text: timestampVerbose"></span></p>
+    </div>
 
 </div>
 <script data-main="app.js" src="require.js"></script>

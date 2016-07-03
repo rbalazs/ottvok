@@ -15,3 +15,24 @@
 .loader {
   display: none;
 }
+
+.fastestProvision {
+  border: 1px dotted green;
+  background-color: green;
+  color: white;
+  float: left;
+  clear: both;
+  font-size: 2em;
+  min-height: 52px;
+}
+
+.provisions {
+  clear: both;
+  color: silver;
+  float: left;
+}
+
+.do-provision {
+  float: right;
+  clear: both;
+}
